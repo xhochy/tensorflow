@@ -10,6 +10,7 @@ cc_library(
     linkopts = [
         "-lgrpc",
         "-lgpr",
+	"-labsl_synchronization",
     ],
     visibility = ["//visibility:public"],
 )
@@ -19,6 +20,7 @@ cc_library(
     linkopts = [
         "-lgrpc++",
         "-lgpr",
+	"-labsl_synchronization",
     ],
     visibility = ["//visibility:public"],
 )
@@ -38,6 +40,7 @@ cc_library(
     linkopts = [
         "-lgrpc_unsecure",
         "-lgpr",
+	"-labsl_synchronization",
     ],
     visibility = ["//visibility:public"],
 )
