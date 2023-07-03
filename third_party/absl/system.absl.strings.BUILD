@@ -26,7 +26,7 @@ cc_library(
 
 cc_library(
     name = "cord",
-    linkopts = ["-labsl_cord"],
+    linkopts = ["-labsl_cord", "-labsl_cordz_functions", "-labsl_cordz_info"],
     deps = [
         ":str_format",
         "//absl/container:compressed_tuple",
