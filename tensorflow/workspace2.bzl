@@ -373,6 +373,7 @@ def _tf_repositories():
         system_link_files = {
             "//third_party/systemlibs:protobuf.bzl": "protobuf.bzl",
             "//third_party/systemlibs:protobuf_deps.bzl": "protobuf_deps.bzl",
+	    "//third_party/systemlibs:protobuf_python.bzl": "python/BUILD",
         },
         urls = tf_mirror_urls("https://github.com/protocolbuffers/protobuf/archive/v3.21.9.zip"),
     )
@@ -776,10 +777,10 @@ def _tf_repositories():
 
     tf_http_archive(
         name = "pybind11_protobuf",
-        urls = tf_mirror_urls("https://github.com/pybind/pybind11_protobuf/archive/80f3440cd8fee124e077e2e47a8a17b78b451363.zip"),
-        sha256 = "c7ab64b1ccf9a678694a89035a8c865a693e4e872803778f91f0965c2f281d78",
-        strip_prefix = "pybind11_protobuf-80f3440cd8fee124e077e2e47a8a17b78b451363",
-        patch_file = ["//third_party/pybind11_protobuf:remove_license.patch"],
+        urls = tf_mirror_urls("https://github.com/pybind/pybind11_protobuf/archive/c8cc30e2495309e3499b7d76033446236d21c837.zip"),
+        sha256 = "0663f73b34c0b4af55003edbb066e62aceff99bfcf12e47ea9a15d6013d81413",
+        strip_prefix = "pybind11_protobuf-c8cc30e2495309e3499b7d76033446236d21c837",
+	patch_file = ["//third_party/pybind11_protobuf:remove_license.patch", "//third_party/pybind11_protobuf:0001-Add-Python-include-path.patch"],
     )
 
     tf_http_archive(

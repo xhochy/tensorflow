@@ -1,0 +1,26 @@
+From 5ccde396f198927bbf758697d6bef39fdb5ac6b0 Mon Sep 17 00:00:00 2001
+From: "Uwe L. Korn" <uwe.korn@quantco.com>
+Date: Tue, 29 Aug 2023 21:33:08 +0200
+Subject: [PATCH] Add Python include path
+
+---
+ pybind11_protobuf/BUILD | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/pybind11_protobuf/BUILD b/pybind11_protobuf/BUILD
+index bc23e79..d701b68 100755
+--- a/pybind11_protobuf/BUILD
++++ b/pybind11_protobuf/BUILD
+@@ -85,6 +85,9 @@ cc_library(
+     visibility = [
+         "//visibility:private",
+     ],
++    copts = [
++	"-I@@PREFIX@@/include/python@@PY_VER@@",
++    ],
+     deps = [
+         "@com_google_absl//absl/container:flat_hash_map",
+         "@com_google_absl//absl/container:flat_hash_set",
+-- 
+2.41.0
+
