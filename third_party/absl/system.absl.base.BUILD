@@ -17,12 +17,22 @@ package(default_visibility = ["//visibility:public"])
 
 cc_library(
     name = "log_severity",
-    linkopts = ["-labsl_log_severity"],
+    linkopts = [
+        "-labsl_log_severity",
+        "-labsl_log_internal_check_op",
+        "-labsl_log_internal_message",
+        "-labsl_log_internal_nullguard",
+    ],
 )
 
 cc_library(
     name = "raw_logging_internal",
-    linkopts = ["-labsl_raw_logging_internal"],
+    linkopts = [
+        "-labsl_raw_logging_internal",
+        "-labsl_log_internal_check_op",
+        "-labsl_log_internal_message",
+        "-labsl_log_internal_nullguard",
+    ],
     visibility = [
         "//absl:__subpackages__",
     ],
