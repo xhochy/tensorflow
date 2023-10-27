@@ -18,6 +18,8 @@ import collections
 import importlib
 import os
 import sys
+if 'PYTHON_LIB_PATH' in os.environ:
+    sys.path.append(os.environ['PYTHON_LIB_PATH'])
 
 from tensorflow.python.tools.api.generator import doc_srcs
 from tensorflow.python.util import tf_decorator

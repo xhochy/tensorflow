@@ -14,6 +14,11 @@
 # ==============================================================================
 """Generates the quantized function library contained header file."""
 
+import sys
+import os
+if 'PYTHON_LIB_PATH' in os.environ:
+    sys.path.append(os.environ['PYTHON_LIB_PATH'])
+
 import ast
 import re
 import string
