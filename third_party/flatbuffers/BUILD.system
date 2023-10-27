@@ -5,6 +5,11 @@ filegroup(
     visibility = ["//visibility:public"],
 )
 
+filegroup(
+    name = "LICENSE",
+    visibility = ["//visibility:public"],
+)
+
 # Public flatc library to compile flatbuffer files at runtime.
 cc_library(
     name = "flatbuffers",
