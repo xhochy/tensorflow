@@ -66,8 +66,22 @@ cc_library(
 )
 
 cc_library(
+    name = "protobuf_lite",
+    linkopts = ["-lprotobuf-lite"],
+    visibility = ["//visibility:public"],
+)
+
+cc_library(
     name = "protobuf_headers",
     linkopts = ["-lprotobuf"],
+    visibility = ["//visibility:public"],
+)
+
+proto_lang_toolchain(
+    name = "cc_toolchain",
+    command_line = "--cpp_out=$(OUT)",
+    blacklisted_protos = [proto + "_proto" for proto in WELL_KNOWN_PROTO_MAP.keys()],
+    runtime = ":protobuf",
     visibility = ["//visibility:public"],
 )
 
