@@ -111,3 +111,10 @@ py_library(
     visibility = ["//visibility:public"],
     deps = [dep + "_proto" for dep in proto[1][1]],
 ) for proto in WELL_KNOWN_PROTO_MAP.items()]
+
+py_proto_library(
+    name = "well_known_types_py_pb2",
+    include = ".",
+    srcs = [proto[1][0] for proto in WELL_KNOWN_PROTO_MAP.items()],
+    visibility = ["//visibility:public"],
+)
