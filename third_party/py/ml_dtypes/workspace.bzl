@@ -12,6 +12,9 @@ def repo():
     tf_http_archive(
         name = "ml_dtypes",
         build_file = "//third_party/py/ml_dtypes:ml_dtypes.BUILD",
+	patch_file = [
+            "//third_party/py/ml_dtypes:int4.patch",
+	],
         link_files = {
             "//third_party/py/ml_dtypes:ml_dtypes.tests.BUILD": "tests/BUILD.bazel",
             "//third_party/py/ml_dtypes:LICENSE": "LICENSE",

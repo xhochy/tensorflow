@@ -1,0 +1,15 @@
+diff --git ml_dtypes/include/int4.h ml_dtypes/include/int4.h
+index 419cc9f..651e525 100644
+--- ml_dtypes/include/int4.h
++++ ml_dtypes/include/int4.h
+@@ -38,8 +38,8 @@ struct i4 {
+   constexpr i4& operator=(i4&&) = default;
+
+   explicit constexpr i4(UnderlyingTy val) : v(val & 0x0F) {}
+-  template <typename T>
+-  explicit constexpr i4(T t) : i4(static_cast<UnderlyingTy>(t)) {}
++  /*template <typename T>
++  explicit constexpr i4(T t) : i4(static_cast<UnderlyingTy>(t)) {}*/
+
+   static constexpr i4 lowest() {
+     return std::is_signed<UnderlyingTy>::value ? i4(-8) : i4(0);
