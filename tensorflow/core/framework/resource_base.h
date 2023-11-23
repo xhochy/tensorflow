@@ -18,8 +18,9 @@ limitations under the License.
 
 #include <cstdint>
 #include <string>
+#include <sstream>
 
-#include "absl/strings/str_format.h"
+// #include "absl/strings/str_format.h"
 #include "tensorflow/core/lib/core/refcount.h"
 #include "tensorflow/core/lib/core/status.h"
 #include "tensorflow/core/platform/errors.h"
@@ -41,7 +42,12 @@ class ResourceBase : public core::WeakRefCounted {
 
   // Returns a name for ref-counting handles.
   virtual std::string MakeRefCountingHandleName(int64_t resource_id) const {
-    return absl::StrFormat("Resource-%d-at-%p", resource_id, this);
+    std::ostringstream stringStream;
+    stringStream << "Resource-";
+    stringStream << resource_id;
+    stringStream << "-";
+    stringStream << reinterpret_cast<uint64_t>(this);
+    return stringStream.str();
   }
 
   // Returns memory used by this resource.

@@ -18,6 +18,8 @@ limitations under the License.
 #include "tensorflow/core/framework/resource_handle.h"
 #include "tensorflow/core/graph/graph_def_builder.h"
 
+#include "absl/strings/str_format.h"
+
 namespace tensorflow {
 
 Status Var::AsGraphDef(GraphDefBuilder* builder, Node** out) const {
