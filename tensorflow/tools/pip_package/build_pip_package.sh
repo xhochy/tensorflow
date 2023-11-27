@@ -364,7 +364,7 @@ function build_wheel() {
 
   rm -f MANIFEST
   echo $(date) : "=== Building wheel"
-  $FULL_DIR setup.py bdist_wheel ${PKG_NAME_FLAG} >/dev/null
+  $PYTHON setup.py bdist_wheel ${PKG_NAME_FLAG} >/dev/null
   mkdir -p ${DEST}
   cp dist/* ${DEST}
   popd > /dev/null
